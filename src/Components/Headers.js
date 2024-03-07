@@ -1,9 +1,10 @@
 import { HeadersUrl } from "../utilis/Constant";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import useStatus from '../utilis/useStatus'
 const Headers = () => {
   const [button, setButton] = useState("Login");
-
+const onlineStatus =  useStatus()
   const onChange = () => {
     button === "Login" ? setButton("Logout") : setButton("Login");
   };
@@ -13,6 +14,10 @@ const Headers = () => {
       <img className="logo" src={HeadersUrl} alt="" />
       <div className="navbar">
         <ul>
+  <li> Online Status: {onlineStatus === true ? '✅': '🔴'}</li>
+   
+
+    
           <li><Link to="/"> Home</Link></li>
           <li>
             <Link to="/aboutus"> About Us</Link>

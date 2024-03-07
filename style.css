@@ -1,4 +1,64 @@
-.heading,h1{
-    color:red;
-    text-align:center;
+.heading,
+h1 {
+  color: red;
+  text-align: center;
+}
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border: 2px solid black;
+}
+.navbar > ul {
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
+  font-size: 24px;
+}
+.navbar > ul > li {
+  padding: 20px;
+  list-style-type: none;
+  cursor: pointer;
+}
+.logo {
+  width: 80px;
+}
+.card {
+  width: 300px;
+  background-color: grey;
+  padding: 10px;
+  margin: 5px;
+}
+.card:hover {
+  border: 2px solid black;
+  cursor: pointer;
+}
+.search {
+  padding: 10px;
+  margin: 20px;
+}
+.res-logo {
+  width: 100%;
+  margin: auto;
+  display: block;
+}
+.res-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+.simmer{
+  display: flex;
+  flex-wrap: wrap;
+}
+.cardSimmer{
+  width: 300px;
+  background-color: grey;
+  padding: 10px;
+  margin: 5px;
+  height: 300px;
+}
+.filter{
+  display: flex;
+  padding: 20px;
+
 }

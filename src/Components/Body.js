@@ -29,7 +29,6 @@ const Body = () => {
       json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
   };
-
   
   if(onlineStatus === false){
     return(
@@ -55,33 +54,33 @@ const Body = () => {
       setFilterList(listofRestro);
     } else {
       const highestranking = listofRestro.filter((list) => {
-        return list.info.avgRating > 4.5;
+        return list.info.avgRating <4.3;
       });
       setFilterList(highestranking);
     }
     setHighestRanking(!higestRanking);
   };
-
- 
   //Conditonal rendering is in case of condition rendering
   return listofRestro?.length === 0 ? (
     <Shimmer />
   ) : (
     <div className="body">
-      <div className="filter">
-        <div className="search-Text">
-          <input type="text" value={searchText} onChange={handleChange} />
-          <button onClick={handleSearch}>Search</button>
+      <div className="filter flex">
+        <div className="search-Text m-4 p-4">
+          <input className=' focus:ring-2 border rounded-md border-black' type="text" value={searchText} onChange={handleChange} />
+          <button className='rounded-full px-6 py-2 bg-pink-100 m-2'onClick={handleSearch}>Search</button>
         </div>
-        <button onClick={handleHighestRanking} style={{ color: "grey" }}>
+        <div className="search-Text flex items-center ">
+        <button onClick={handleHighestRanking} className ='border rounded-full bg-pink-100 p-2'>
          {higestRanking ? 'Orignal List': 'Highest Ranking'} 
         </button>
+        </div>
       </div>
-      <div className="res-container">
+      <div className="res-container flex flex-wrap">
         {filterList.map((restro) => {
           return <Link 
           key={restro?.info?.id}
-          to ={'/restradunt/'+restro?.info?.id}> <RestraCard  list={restro?.info} /></Link>;
+          to ={'/restradunt/'+restro?.info?.id}> <RestraCard list={restro?.info} /></Link>;
         })}
       </div>
     </div>
